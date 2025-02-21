@@ -1,11 +1,18 @@
 import pygame as pg
 
-class Player:
+from res.colors import GREEN
+
+class GameObject:
     def __init__(self, x_pos: float, y_pos: float):
         self.pos = pg.Vector2(x_pos, y_pos)
 
-    def draw(self, screen: pg.Surface) -> None:
-        pg.draw.circle(screen, "red", self.pos, 40)
+    # TODO : import screen_surface from somewhere else
+    def update(self, dt: float, screen_surface: pg.surface) -> None:
+        self.draw(screen_surface)
+        self.move(dt)
+
+    def draw(self, screen_surface: pg.Surface) -> None:
+        pg.draw.circle(screen_surface, GREEN, self.pos, 40)
 
     def move(self, dt: float) -> None:
         keys = pg.key.get_pressed()
