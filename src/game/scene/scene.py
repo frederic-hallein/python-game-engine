@@ -6,7 +6,7 @@ class Scene:
         self._height = 600
         self._surface = pg.display.set_mode((self._width, self._height))
 
-    def update(self, background_color: str) -> None:
+    def fill(self, background_color: str) -> None:
         self._surface.fill(background_color)
 
     @property
